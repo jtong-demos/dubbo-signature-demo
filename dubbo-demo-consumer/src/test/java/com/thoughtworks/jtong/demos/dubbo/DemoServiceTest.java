@@ -27,7 +27,13 @@ public class DemoServiceTest {
 
     @Test
     public void should_call_service_with_object(){
-        MyResponse message = demoService.communicate(new Person("张三"), new MyMessage("飞越长城走向世界"));
+        MyResponse message = demoService.communicate(new Person("张三", "M"), new MyMessage("飞越长城走向世界"));
+        assertThat(message.getResponse(), Is.is("Hi, 张三: I get your message '飞越长城走向世界'."));
+    }
+
+    @Test
+    public void should_call_service_when_params_has_more_getter_in_server_side_and_less_getter_in_client_side(){
+        MyResponse message = demoService.communicate(new Person("张三", "M"), new MyMessage("飞越长城走向世界"));
         assertThat(message.getResponse(), Is.is("Hi, 张三: I get your message '飞越长城走向世界'."));
     }
 }
