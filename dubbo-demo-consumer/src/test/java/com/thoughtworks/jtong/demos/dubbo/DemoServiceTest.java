@@ -24,4 +24,10 @@ public class DemoServiceTest {
         System.out.println(message);
         assertThat(message, Is.is("Hello World"));
     }
+
+    @Test
+    public void should_call_service_with_object(){
+        MyResponse message = demoService.communicate(new Person("张三"), new MyMessage("飞越长城走向世界"));
+        assertThat(message.getResponse(), Is.is("Hi, 张三: I get your message '飞越长城走向世界'."));
+    }
 }
