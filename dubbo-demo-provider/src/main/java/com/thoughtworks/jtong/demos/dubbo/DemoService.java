@@ -5,4 +5,6 @@ public interface DemoService {
 
     MyResponse communicate(Person person, MyMessage message);
 
+    Person post(Person person);
+
 }

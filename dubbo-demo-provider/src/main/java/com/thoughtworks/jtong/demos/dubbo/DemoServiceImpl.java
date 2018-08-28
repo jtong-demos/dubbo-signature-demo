@@ -14,4 +14,9 @@ public class DemoServiceImpl implements DemoService {
     public MyResponse communicate(Person person, MyMessage message) {
         return new MyResponse("Hi, " + person.getName() + ": I get your message '"+ message.getMessage()+"'.");
     }
+
+    public Person post(Person person) {
+        System.out.println("I works");
+        return person;
+    }
 }
